@@ -1,0 +1,10 @@
+KATTERUMS JAKTLAG v2.5.10 - RIKTAD STABILITETSRATTNING
+
+Orsak till tung/obrukbar app:
+Det sista versionsblocket i app.js anvande MutationObserver pa hela dokumentet och skrev samtidigt ny text i dokumentet. Det kunde skapa en kontinuerlig mutationsloop som belastade huvudtraden och blockerade navigering/rendering.
+
+Andrat:
+- MutationObserver-loopen ar borttagen.
+- Versionsvisningen kors endast direkt, vid DOMContentLoaded samt tva tidsstyrda engangskontroller.
+- Ingen jaktsynk eller annan ny molnlogik har lagts till.
+- Befintlig 2.5.9-funktionalitet och Supabase-koppling ar i ovrigt bevarad.
